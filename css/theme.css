@@ -3746,6 +3746,24 @@ section {
     -moz-border-radius-bottomleft: 15px;
     border-bottom-left-radius: 15px;
 }
+.my-5 {
+    margin-top: 3rem !important;
+    margin-bottom: 3rem !important;
+  }
+  
+  @media (min-width: 576px) {
+    .mx-auto {
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .col-lg-6 {
+      width: 75% !important;
+    }
+  }
+  
 
 .mess-time {
     font-size: 14px;

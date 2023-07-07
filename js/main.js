@@ -3,6 +3,44 @@
   // USE STRICT
   "use strict";
 
+  // Sample data array
+  var reportsData = [
+    { date: '12/12/2022', reportID: '01', country: 'India' },
+    { date: '13/12/2022', reportID: '02', country: 'Pakisthan' },
+    { date: '14/12/2022', reportID: '03', country: 'Australia' }
+  ];
+
+  // Function to generate the table rows
+  function generateTableRows() {
+    var tableBody = document.querySelector('#reportTable tbody');
+
+    // Clear existing table rows
+    tableBody.innerHTML = '';
+
+    // Iterate over the data array
+    reportsData.forEach(function (report) {
+      var row = document.createElement('tr');
+
+      // Create table cells for each property
+      var dateCell = document.createElement('td');
+      dateCell.textContent = report.date;
+      row.appendChild(dateCell);
+
+      var reportIDCell = document.createElement('td');
+      reportIDCell.textContent = report.reportID;
+      row.appendChild(reportIDCell);
+
+      var countryCell = document.createElement('td');
+      countryCell.textContent = report.country;
+      row.appendChild(countryCell);
+
+      tableBody.appendChild(row);
+    });
+  }
+
+  // Call the function to populate the table initially
+  generateTableRows();
+
   try {
     //WidgetChart 1
     var ctx = document.getElementById("widgetChart1");
@@ -11,15 +49,17 @@
       var myChart = new Chart(ctx, {
         type: 'line',
         data: {
-          labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-          type: 'line',
-          datasets: [{
-            data: [78, 81, 80, 45, 34, 12, 40],
-            label: 'Dataset',
-            backgroundColor: 'rgba(255,255,255,.1)',
-            borderColor: 'rgba(255,255,255,.55)',
-          },]
+          // labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+          // type: 'line',
+          // datasets: [{
+          //   data: [78, 81, 80, 45, 34, 12, 40],
+          //   label: 'Dataset',
+          //   backgroundColor: 'rgba(255,255,255,.1)',
+          //   borderColor: 'rgba(255,255,255,.55)',
+          // },]
         },
+        backgroundColor: 'rgba(255,255,255,.1)',
+        borderColor: 'rgba(255,255,255,.55)',
         options: {
           maintainAspectRatio: true,
           legend: {
@@ -67,13 +107,14 @@
           }
         }
       });
+
     }
 
 
     //WidgetChart 2
     var ctx = document.getElementById("widgetChart2");
     if (ctx) {
-      ctx.height = 130;
+      ctx.height = 100;
       var myChart = new Chart(ctx, {
         type: 'line',
         data: {
@@ -1253,35 +1294,35 @@
 
 
 (function ($) {
-    // USE STRICT
-    "use strict";
-    var navbars = ['header', 'aside'];
-    var hrefSelector = 'a:not([target="_blank"]):not([href^="#"]):not([class^="chosen-single"])';
-    var linkElement = navbars.map(element => element + ' ' + hrefSelector).join(', ');
-    $(".animsition").animsition({
-      inClass: 'fade-in',
-      outClass: 'fade-out',
-      inDuration: 900,
-      outDuration: 900,
-      linkElement: linkElement,
-      loading: true,
-      loadingParentElement: 'html',
-      loadingClass: 'page-loader',
-      loadingInner: '<div class="page-loader__spin"></div>',
-      timeout: false,
-      timeoutCountdown: 5000,
-      onLoadEvent: true,
-      browser: ['animation-duration', '-webkit-animation-duration'],
-      overlay: false,
-      overlayClass: 'animsition-overlay-slide',
-      overlayParentElement: 'html',
-      transition: function (url) {
-        window.location.href = url;
-      }
-    });
-  
-  
-  })(jQuery);
+  // USE STRICT
+  "use strict";
+  var navbars = ['header', 'aside'];
+  var hrefSelector = 'a:not([target="_blank"]):not([href^="#"]):not([class^="chosen-single"])';
+  var linkElement = navbars.map(element => element + ' ' + hrefSelector).join(', ');
+  $(".animsition").animsition({
+    inClass: 'fade-in',
+    outClass: 'fade-out',
+    inDuration: 900,
+    outDuration: 900,
+    linkElement: linkElement,
+    loading: true,
+    loadingParentElement: 'html',
+    loadingClass: 'page-loader',
+    loadingInner: '<div class="page-loader__spin"></div>',
+    timeout: false,
+    timeoutCountdown: 5000,
+    onLoadEvent: true,
+    browser: ['animation-duration', '-webkit-animation-duration'],
+    overlay: false,
+    overlayClass: 'animsition-overlay-slide',
+    overlayParentElement: 'html',
+    transition: function (url) {
+      window.location.href = url;
+    }
+  });
+
+
+})(jQuery);
 (function ($) {
   // USE STRICT
   "use strict";
@@ -1290,8 +1331,8 @@
   try {
 
     var vmap = $('#vmap');
-    if(vmap[0]) {
-      vmap.vectorMap( {
+    if (vmap[0]) {
+      vmap.vectorMap({
         map: 'world_en',
         backgroundColor: null,
         color: '#ffffff',
@@ -1300,7 +1341,7 @@
         enableZoom: true,
         showTooltip: true,
         values: sample_data,
-        scaleColors: [ '#1de9b6', '#03a9f5'],
+        scaleColors: ['#1de9b6', '#03a9f5'],
         normalizeFunction: 'polynomial'
       });
     }
@@ -1311,10 +1352,10 @@
 
   // Europe Map
   try {
-    
+
     var vmap1 = $('#vmap1');
-    if(vmap1[0]) {
-      vmap1.vectorMap( {
+    if (vmap1[0]) {
+      vmap1.vectorMap({
         map: 'europe_en',
         color: '#007BFF',
         borderColor: '#fff',
@@ -1330,11 +1371,11 @@
 
   // USA Map
   try {
-    
+
     var vmap2 = $('#vmap2');
 
-    if(vmap2[0]) {
-      vmap2.vectorMap( {
+    if (vmap2[0]) {
+      vmap2.vectorMap({
         map: 'usa_en',
         color: '#007BFF',
         borderColor: '#fff',
@@ -1344,12 +1385,12 @@
         selectedColor: null,
         hoverColor: null,
         colors: {
-            mo: '#001BFF',
-            fl: '#001BFF',
-            or: '#001BFF'
+          mo: '#001BFF',
+          fl: '#001BFF',
+          or: '#001BFF'
         },
-        onRegionClick: function ( event, code, region ) {
-            event.preventDefault();
+        onRegionClick: function (event, code, region) {
+          event.preventDefault();
         }
       });
     }
@@ -1360,32 +1401,32 @@
 
   // Germany Map
   try {
-    
+
     var vmap3 = $('#vmap3');
-    if(vmap3[0]) {
-      vmap3.vectorMap( {
+    if (vmap3[0]) {
+      vmap3.vectorMap({
         map: 'germany_en',
         color: '#007BFF',
         borderColor: '#fff',
         backgroundColor: '#fff',
-        onRegionClick: function ( element, code, region ) {
-            var message = 'You clicked "' + region + '" which has the code: ' + code.toUpperCase();
+        onRegionClick: function (element, code, region) {
+          var message = 'You clicked "' + region + '" which has the code: ' + code.toUpperCase();
 
-            alert( message );
+          alert(message);
         }
       });
     }
-    
+
   } catch (error) {
     console.log(error);
   }
-  
+
   // France Map
   try {
-    
+
     var vmap4 = $('#vmap4');
-    if(vmap4[0]) {
-      vmap4.vectorMap( {
+    if (vmap4[0]) {
+      vmap4.vectorMap({
         map: 'france_fr',
         color: '#007BFF',
         borderColor: '#fff',
@@ -1402,8 +1443,8 @@
   // Russia Map
   try {
     var vmap5 = $('#vmap5');
-    if(vmap5[0]) {
-      vmap5.vectorMap( {
+    if (vmap5[0]) {
+      vmap5.vectorMap({
         map: 'russia_en',
         color: '#007BFF',
         borderColor: '#fff',
@@ -1412,7 +1453,7 @@
         selectedColor: '#999999',
         enableZoom: true,
         showTooltip: true,
-        scaleColors: [ '#C8EEFF', '#006491' ],
+        scaleColors: ['#C8EEFF', '#006491'],
         normalizeFunction: 'polynomial'
       });
     }
@@ -1421,20 +1462,20 @@
   } catch (error) {
     console.log(error);
   }
-  
+
   // Brazil Map
   try {
-    
+
     var vmap6 = $('#vmap6');
-    if(vmap6[0]) {
-      vmap6.vectorMap( {
+    if (vmap6[0]) {
+      vmap6.vectorMap({
         map: 'brazil_br',
         color: '#007BFF',
         borderColor: '#fff',
         backgroundColor: '#fff',
-        onRegionClick: function ( element, code, region ) {
-            var message = 'You clicked "' + region + '" which has the code: ' + code.toUpperCase();
-            alert( message );
+        onRegionClick: function (element, code, region) {
+          var message = 'You clicked "' + region + '" which has the code: ' + code.toUpperCase();
+          alert(message);
         }
       });
     }
@@ -1464,8 +1505,8 @@
             });
           }
         }, {
-            offset: 'bottom-in-view'
-          });
+          offset: 'bottom-in-view'
+        });
 
       });
     });
@@ -1480,8 +1521,8 @@
   // Scroll Bar
   try {
     var jscr1 = $('.js-scrollbar1');
-    if(jscr1[0]) {
-      const ps1 = new PerfectScrollbar('.js-scrollbar1');      
+    if (jscr1[0]) {
+      const ps1 = new PerfectScrollbar('.js-scrollbar1');
     }
 
     var jscr2 = $('.js-scrollbar2');
@@ -1527,7 +1568,7 @@
     for (var i = 0; i < menu.length; i++) {
       $(menu[i]).on('click', function (e) {
         e.preventDefault();
-        $('.js-right-sidebar').removeClass("show-sidebar");        
+        $('.js-right-sidebar').removeClass("show-sidebar");
         if (jQuery.inArray(this, menu) == sub_menu_is_showed) {
           $(this).toggleClass('show-dropdown');
           sub_menu_is_showed = -1;
@@ -1557,28 +1598,28 @@
   }
 
   var wW = $(window).width();
-    // Right Sidebar
-    var right_sidebar = $('.js-right-sidebar');
-    var sidebar_btn = $('.js-sidebar-btn');
+  // Right Sidebar
+  var right_sidebar = $('.js-right-sidebar');
+  var sidebar_btn = $('.js-sidebar-btn');
 
-    sidebar_btn.on('click', function (e) {
-      e.preventDefault();
-      for (var i = 0; i < menu.length; i++) {
-        menu[i].classList.remove("show-dropdown");
-      }
-      sub_menu_is_showed = -1;
-      right_sidebar.toggleClass("show-sidebar");
-    });
+  sidebar_btn.on('click', function (e) {
+    e.preventDefault();
+    for (var i = 0; i < menu.length; i++) {
+      menu[i].classList.remove("show-dropdown");
+    }
+    sub_menu_is_showed = -1;
+    right_sidebar.toggleClass("show-sidebar");
+  });
 
-    $(".js-right-sidebar, .js-sidebar-btn").click(function (event) {
-      event.stopPropagation();
-    });
+  $(".js-right-sidebar, .js-sidebar-btn").click(function (event) {
+    event.stopPropagation();
+  });
 
-    $("body,html").on("click", function () {
-      right_sidebar.removeClass("show-sidebar");
+  $("body,html").on("click", function () {
+    right_sidebar.removeClass("show-sidebar");
 
-    });
- 
+  });
+
 
   // Sublist Sidebar
   try {
@@ -1646,7 +1687,7 @@
   "use strict";
 
   try {
-    
+
     $('[data-toggle="tooltip"]').tooltip();
 
   } catch (error) {
@@ -1657,14 +1698,14 @@
   try {
     var inbox_wrap = $('.js-inbox');
     var message = $('.au-message__item');
-    message.each(function(){
+    message.each(function () {
       var that = $(this);
 
-      that.on('click', function(){
+      that.on('click', function () {
         $(this).parent().parent().parent().toggleClass('show-chat-box');
       });
     });
-    
+
 
   } catch (error) {
     console.log(error);
