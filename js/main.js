@@ -3,44 +3,6 @@
   // USE STRICT
   "use strict";
 
-  // Sample data array
-  var reportsData = [
-    { date: '12/12/2022', reportID: '01', country: 'India' },
-    { date: '13/12/2022', reportID: '02', country: 'Pakisthan' },
-    { date: '14/12/2022', reportID: '03', country: 'Australia' }
-  ];
-
-  // Function to generate the table rows
-  function generateTableRows() {
-    var tableBody = document.querySelector('#reportTable tbody');
-
-    // Clear existing table rows
-    tableBody.innerHTML = '';
-
-    // Iterate over the data array
-    reportsData.forEach(function (report) {
-      var row = document.createElement('tr');
-
-      // Create table cells for each property
-      var dateCell = document.createElement('td');
-      dateCell.textContent = report.date;
-      row.appendChild(dateCell);
-
-      var reportIDCell = document.createElement('td');
-      reportIDCell.textContent = report.reportID;
-      row.appendChild(reportIDCell);
-
-      var countryCell = document.createElement('td');
-      countryCell.textContent = report.country;
-      row.appendChild(countryCell);
-
-      tableBody.appendChild(row);
-    });
-  }
-
-  // Call the function to populate the table initially
-  generateTableRows();
-
   try {
     //WidgetChart 1
     var ctx = document.getElementById("widgetChart1");
@@ -107,7 +69,6 @@
           }
         }
       });
-
     }
 
 
